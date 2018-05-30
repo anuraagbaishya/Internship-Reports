@@ -1,142 +1,8 @@
-\documentclass[a4paper,12pt]{article}
-\setlength\textwidth{7in}
-\usepackage{amssymb,amsmath}
-\usepackage{verbatim,graphicx}
-\usepackage{fullpage}
-\setlength{\parindent}{0cm}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{array}
-\usepackage{caption} 
-\captionsetup[table]{skip=10pt}
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-\setlength\extrarowheight{5pt}
-\lstdefinestyle{numbers} {numbers=left, stepnumber=1, numberstyle=\tiny, numbersep=10pt}
-\lstdefinestyle{MyFrame}{frame=shadowbox}
+\setlength\parindent{0pt}
 
-\lstdefinestyle{PyStyle} {language=Python,style=numbers,style=MyFrame,frame=tb}
-\lstdefinestyle{ShellStyle} {language=sh,style=numbers,style=MyFrame,frame=tb}
+\chapter{Workdone So Far}
 
-\lstset{language=Python,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
-\lstset{language=sh,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
-\begin{document}
-
-\begin{titlepage}
-\vspace*{2cm}
-	\begin{center}
-	\large{\textbf{Battery Optimisation for a given Citrix App}}
-	\end{center}
-	\vspace{0.5cm}\
-	\begin{center}
-	\small{\textit{Project progress report submitted} \\ \vspace{0.25cm} \textit{to} \\ \vspace{0.25cm}\textbf{MANIPAL ACADEMY OF HIGHER EDUCATION} \\}
-	\end{center}
-	\vspace{0.25cm}
-	\begin{center}
-	\small{\textit{For Partial Fulfillment of the Requirement for the\\ \vspace{0.25cm}Award of the Degree\\ \vspace{0.25cm}of}} \\ \vspace{0.25cm}
-	\textbf{Bachelor of Technology} \\  \vspace{0.25cm} \textit{in} \\ \textbf{Information Technology}
-	\end{center}
-	
-	\begin{center}
-	\small{\textit{by}} \\
-	\textbf{Anuraag Palash Baishya} \\ \textbf{Reg. No. 140911296} \\
-	\end{center}
-
-
-\begin{center}
-	\small{\textit{Under the guidance of}} \\
-\renewcommand{\baselinestretch}{1}
-{	
-\begin{table}[h]
-	\centering
-		\begin{tabular}{p{3in} p{3in}}
-			Mrs. Aparna Nayak &  Mr. Rajeev Dixit  \\
-			Assistant Professor
- &    Software Development Engineer (3P) \\
-			Department of I \& CT  &  Mobile Platform Group (Automation) \\
-			 Manipal Institute of Technology& Citrix R\&D India Ltd \\
-			Manipal, India &  Ulsoor Road, Bangalore, India 
-		\end{tabular}
-\end{table}
-}
-
-	\end{center}
-
-
-	\begin{figure}[h]
-  \begin{center}
-	\includegraphics[scale=1]{MITLogo}
-	%\includegraphics[height=2.8cm]{man}
-	\end{center}
-	\end{figure}
-	\begin{center}
-	\textbf{March 2018}
-	\end{center}
-\end{titlepage}
-
-%\newpage
-
-\newpage
-\section{Introduction}
-In a survey of around 50,000 people across 25 countries, conducted by International Data Corporation, it was found that battery life is the most important factor when buying a smartphone, with 56\% Android users, 49\% iOS users and 53\% of Windows phone users stating the same.\cite{idcsurvey} Mobile device manufacturers and mobile operating system developers pay great attention to battery usage. While device manufacturers are adding larger batteries to their devices, Android has been given a ‘Doze mode’ to reduce battery usage when phone is idle, along with a ‘Battery Saver’ mode that disables aggressive network usage, animations, and other elements that drain battery, and iOS comes with a ‘Low Power’ mode which essentially is similar to Android battery saver mode. Technologies such as Qualcomm Quick Charge™ and OnePlus Dash Charge have also been developed to reduce the time needed to charge a phone. Keeping such developments in mind, it has become very important for app developers to develop apps with optimized battery performance, so as to use as less battery as possible by default, i.e. even with battery life enhancing aids turned off.
-\section{Problem Definition}	
-In this project, we will be working towards performing automated battery performance tests for a given Citrix Mobile app.
-\section{Objective}
-The objective of this project is as follows:
-\begin{enumerate}
-	\item To gauge the current battery usage patterns of a given Citrix Mobile app
-	\item To determine factors within the app that drain more battery than desired
-\end{enumerate}
-
-\section{Scope}
-Beneficiaries of the work include:
-\begin{enumerate}
-	\item The app development team who can utilize the results to optimize the app’s battery usage
-	\item The app users, who will have a more battery efficient app
-\end{enumerate}
-\section{Background Theory}
-
-There are a large number of factors that determine the battery usage of a device. Some of them are system level, including brightness, hardware power consumption and operating system battery consumption, which are beyond the control of application developers. However there exist a large number of factors such as CPU usage, network usage, wakelocks, etc which developers can look into, to optimize. \\
-
-CPU usage results from performing computations. CPU usage is of two types, foreground usage, i.e when the app is running in the foreground, and background usage, for when app is running in the background (to perform tasks such as synchronisation, download, checking for mails, messages, etc). While foreground CPU usage forms a major part of battery consumption by cpu, if unchecked, a lot of unnecessary computation and processing maybe happening in the background, leading to battery drain (Unnecessary computation and processing may be taking place in the foreground as well) \\
-
-Network usage, including mobile network and WiFi also form a major portion of battery usage. Like CPU usage, network usage is also of two types, background and foreground. Also like CPU usage, the app may be sending and receiving unnecessary packets in the foreground, background, or both. This is a potential candidate in making an app battery heavy.\\
-
-Wakelock is a feature, which when requested by an app, lets the app to prevent the phone from going to sleep, i.e. the app will run continuously.\cite{wakelock} Wakelocks are handled differently in iOS and Android. While Android provides more control to the developer to invoke and use wakelocks through partial wakelocks, which lets apps run in the background, executing tasks, regardless of screen state or display timeouts, iOS permits partial wakelocks only for VOIP and location services.\cite{stackoverflow} It is pretty evident that an app requesting for unnecessary wakelocks will have a high energy consumption. This problem is greater for Android, due to availability of partial wakelocks.\\
-
-There may be external factors in an app’s battery consumption, such as bluetooth usage, camera usage or some other function whose power consumption is not directly controllable by the app. Such factors cannot be handled by the developers of the app, and hence such factors will not be taken into account. There may also arise unanticipated bugs in the app which lead to battery drain. 
-
-
-\section{Methodology}
-The battery consumption of an app depends a lot on the device, it’s make, operating system version, age, etc, especially for Android devices, of which there are thousands of different devices. In contrast, iOS runs only on iPhones, and thus there are very few different models. However, since we will be performing tests to determine usage patterns and battery demanding elements, we will not need the absolute battery consumption levels, and a general overview of the app’s battery consumption patterns will fulfil our requirements.\\
-
-The test environment is as follows:
-
-\textbf{Device:} Samsung Galaxy S6\\
-
-\textbf {Tests to Run:}
-\begin{enumerate}
-	\item Composing and sending emails (emails may contain attachments).
-	\item Run Build Validation Test (BVT) for running basic app operations. (Build Verification test is a set of tests run on every new build to verify that build is testable before it is released to the test teams)
-	\item Run detailed tests for problem areas discovered after running BVT tests 
-\end{enumerate}
-NOTE: These tests will be automated through scripts \\
-
-Factors to be considered for Battery Performance Benchmarking:
-\begin{itemize}
-	\item Checking the battery status before the test begins.
-	\item Enabling the location services for the application (if application requires).
-	\item Starting the data sync of the application.
-	\item Checking if the application is sending/receiving the data when in the background.
-	\item Observing the battery consumption while performing the above supported features by the application.
-\end{itemize}
-
-To test battery performance, we will use a tool, Battery Historian, developed by Google. Battery Historian analyses a bugreport taken from an Android phone and shows detailed battery use statistics, including CPU and Kernel uptime, running process information, mobile network, WiFi, GPS, JobScheduler, SyncManager usage details, and usage statistics for each app (such as CPU and network usage information, wakelocks, services, etc) that was running in the duration for which the bugreport was taken.\cite{batteryhistorian} \\
-
-For automation purposes, we will also develop a script which reports battery usage patterns, as Battery Historian has to be run manual. The tool will read the batterystats file and generate a HTML report showing wakelocks, wakeup alarms, jobs and syncs.
-
-
-\section{Workdone So Far}
-\textbf{Setting up battery historian and UI Automator automation setup:} I got Battery Historian (a tool to analyze power use on Android devices, developed by Google) running on my machine. Then I learnt how to generate battery statistics and bug reports using adb (Android Debug Bridge). Following are the adb commands to use:\cite{adb}
+\section{Setting up battery historian and UI Automator automation setup:} I got Battery Historian (a tool to analyze power use on Android devices, developed by Google) running on my machine. Then I learnt how to generate battery statistics and bug reports using adb (Android Debug Bridge). Following are the adb commands to use:\cite{adb}
 \begin{lstlisting}[style=ShellStyle]
 # to start the adb server
 adb start-server
@@ -178,9 +44,9 @@ adb shell dumpsys batterystats com.example.app > batterystats.txt
 Finally I learnt to analyze these reports using Battery Historian. I also setup Android Studio, UIAutomator and other tools such as Apache Ant and Robot Framework.
 \\
 
-\textbf{Running UI Automator tests and understanding the flow}: I have been given access to the repositories for the app and the automation test suite. The test suite makes use of robot framework and UI Automator library. Hence I had o first train myself in both these tools. \\
+\section{Running UI Automator tests and understanding the flow}: I have been given access to the repositories for the app and the automation test suite. The test suite makes use of robot framework and UI Automator library. Hence I had o first train myself in both these tools. \\
 
-\textbf{UI Automator} testing framework provides a set of APIs to build UI tests that perform interactions on user apps and system apps. The UI Automator APIs allows you to perform operations such as opening the Settings menu or the app launcher in a test device. The UI Automator testing framework is well-suited for writing black box-style automated tests, where the test code does not rely on internal implementation details of the target app.\cite{uiautomator} \\
+\subsection{UI Automator} testing framework provides a set of APIs to build UI tests that perform interactions on user apps and system apps. The UI Automator APIs allows you to perform operations such as opening the Settings menu or the app launcher in a test device. The UI Automator testing framework is well-suited for writing black box-style automated tests, where the test code does not rely on internal implementation details of the target app.\cite{uiautomator} \\
 
 We are makking use of an open source python wrapper written for UI Automator. For UI Automator to work, an Android device has to be connected to the computer over adb via USB or WiFi. Since my work deals with analysing battery performance, I have to use adb over TCP as connecting adb via WiFi will continuously charge the battery, which leads to these problems:
 \begin{itemize}
@@ -232,7 +98,7 @@ if device(text='OK').exists:
 \end{lstlisting}
 Documentation for UIAutomator python wrapper can be found on GitHub. \cite{uiautomatordoc}\\
 
-\textbf{Robot Framework} is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD). It has easy-to-use tabular test data syntax and it utilizes the keyword-driven testing approach. Its testing capabilities can be extended by test libraries implemented either with Python or Java, and users can create new higher-level keywords from existing ones using the same syntax that is used for creating test cases \cite{robot}.
+\subsection{Robot Framework} is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD). It has easy-to-use tabular test data syntax and it utilizes the keyword-driven testing approach. Its testing capabilities can be extended by test libraries implemented either with Python or Java, and users can create new higher-level keywords from existing ones using the same syntax that is used for creating test cases \cite{robot}.
 A sample robot test case:
 \begin{lstlisting}[style=PyStyle]
 *** Test Cases ***
@@ -267,12 +133,12 @@ Test username and password
 \end{lstlisting}
 After learning how to use these tools, I wrote simple test cases for the app I have been given to work with. These test cases were solely written for the purpose of training and were not added to the actual code base. 
 
-\textbf{Writing a shell script to send multiple emails:} 
+\section{Writing a shell script to send multiple emails:} 
 The task at hand was to write a script that sends a batch of 50 emails in half hour intervals, for a total of 150 mails over 1 and half hour. \\
 
-\underline{Approaches tried:}\\
+\subsection{Approaches tried:}
 
-\textbf{Postfix:} Postfix is a free and open-source mail transfer agent that routes and delivers electronic mail. First I learnt to setup a gmail relay using Postfix. This is the basic Postfix main configuration, which needs to be added at the end of the Postfix main configuration file (usually found at /etc/postfix/main.cf on UNIX based systems)
+\subsubsection{Postfix:} Postfix is a free and open-source mail transfer agent that routes and delivers electronic mail. First I learnt to setup a gmail relay using Postfix. This is the basic Postfix main configuration, which needs to be added at the end of the Postfix main configuration file (usually found at /etc/postfix/main.cf on UNIX based systems)
 
 \begin{lstlisting}[style=ShellStyle]
 mail_owner = _postfix
@@ -323,7 +189,7 @@ NOTE: To send emails using this relay, the sender must allow less secure apps to
 
 Although this worked with the gmail SMTP, due to network restrictions on company network, I could not connect to the internal mail servers, leading to an 'Operation Timed Out' error\\
 
-\textbf{msmtp:} msmtp is a mail client similar to Postfix. msmtp also needs to be configured. The follwing is a sample configuration file (the file is named msmtprc) \cite{msmtp}
+\subsubsection{msmtp:} msmtp is a mail client similar to Postfix. msmtp also needs to be configured. The follwing is a sample configuration file (the file is named msmtprc) \cite{msmtp}
 
 \begin{lstlisting}[style=ShellStyle]
 defaults
@@ -348,7 +214,7 @@ echo "This is a test." |msmtp -t user@mail.com
 \end{lstlisting}
 However, since the issue was with the network settings for the company network, msmtp did not work either. After discussion with my guide, I was asked to move on to the next task and leave this for the time being.\\
 
-\textbf{Segregating the Test Cases (TCs) which test most commonly used UI interactions (viz. message compose, create event, contact) and add TAG as `BatteryPerf'}: The UI Automation Suite already had test cases for almost all functionality available in the app. My task was pick test cases which test UI actions which are commonly performed by users. The test cases included Build Validation Test (BVT) cases and Function Validation Test (FVT) cases.  \\
+\section{Segregating the Test Cases (TCs) which test most commonly used UI interactions and add TAG as `BatteryPerf'}: The UI Automation Suite already had test cases for almost all functionality available in the app. My task was pick test cases which test UI actions which are commonly performed by users. The test cases included Build Validation Test (BVT) cases and Function Validation Test (FVT) cases.  \\
 To get this done, I first had to understand the flow of work of the automation suite. The flow of code execution is as follows: 
 \begin{enumerate}
 	\item Build and run the MainDriver using Gradle
@@ -435,7 +301,7 @@ CtxAppManager                     & 0ms           & 0      & 17       \\ \hline
 This information was obtained from Battery Historian\\
 
 When I was running the test cases, I realised that for some cases emails were being sent to the test account. I consulted my guide, who told me they were sent using the Java Exchange Web Services API and a corresponding Python wrapper. I then looked into the feasibility of using these APIs to send the batch mails. Since it was feasible, I added the code for sending the batch emails and added a test case to the robot test cases file to send and verify batch emails. During developing this test case, one problem I faced was that during the 30 minute intervals between mail batches, since the phone was idle, the phone would go to Android Doze mode, which led to adb over WiFi disconnecting. To solve this issue, I polled the device once every minute to ensure that it does not go into doze mode. Although this is a deviation from a practical use point, this was necessary for us to run tests, and the polling hardly affected the battery usage as it does not do any computation that may require CPU or network usage. This test was primarily to check battery performance for sync operations. Results for this test are as follows:
-\pagebreak
+
 \begin{table}[!h]
 \begin{center}
 \caption{General Statistics}
@@ -495,14 +361,14 @@ I also thought of running the entire battery performance test under low free mem
 
 Initially I was supposed to carry out the battery performance test under network fluctuations and also on 3G/4G network. But due to unavailability of a SIM card, and issues with creating network fluctuations, these tasks have been suspended for now, and will be added later if a feasible solution is found\\
 
-\textbf{Creating a jenkins job and configure it to run Battery Performance automation: }Jenkins is an open source automation server written in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery. The next task was to automate the entire battery performance test and to run it on the team Jenkins server, end to end without any manual work. For this I needed to do the following:
+\section{Creating a jenkins job and configure it to run Battery Performance automation: }Jenkins is an open source automation server written in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery. The next task was to automate the entire battery performance test and to run it on the team Jenkins server, end to end without any manual work. For this I needed to do the following:
 \begin{itemize}
 	\item Learn how to work with Jenkins, and get familiar with it.
 	\item Develop a simple reporting tool to report the battery usage patterns, as Battery Historian (used previously) has to be run manually, and is also very verbose, which makes it unsuitable for our purposes
 	\item Create a Jenkins job and run it
 \end{itemize}
 
-So, I downloaded Jenkins, and set it up a local Jenkins server on my machine to see and learn the workings of Jenkins. By default a local Jenkins server runs at localhost:8080. When started for the first time, Jenkins needs to be unlocked using a password, which can be found on terminal which is running Jenkins on UNIX based systems.\\
+So, I set up a local Jenkins server on my machine to see and learn the workings of Jenkins. By default a local Jenkins server runs at localhost:8080. When started for the first time, Jenkins needs to be unlocked using a password, which can be found on terminal which is running Jenkins on UNIX based systems.\\
 
 Steps to create and run a Jenkins job:
 \begin{enumerate}
@@ -514,19 +380,21 @@ Steps to create and run a Jenkins job:
 \end{enumerate}
 Jenkins allows us to set parameters to be used as arguments while running a job. We will be using this to supply arguments to the MainDriver program, instead of specifying the arguments in the MainDriver file itself, as this gives the flexibility to change any arguments if needed before every run. Jenkins also allows setting of build and job run triggers. One such trigger could be committing code to the git repository associated with the Jenkins job.
 
-Moving on, I worked on the development of the simple reporting tool, and testing it. The tool reads the batterystats file and generated a HTML report showing wakelocks, wakeup alarms, jobs and syncs. Screenshots from the tool are on the next page:
-\pagebreak
-\begin{figure}[!h]
- 	\begin{center}
-		\includegraphics[scale=0.6]{reporter1}
-	\end{center}
-\end{figure}
-\pagebreak
+Moving on, I worked on the development of the simple reporting tool, and testing it. The tool reads the batterystats file and generated a HTML report showing wakelocks, wakeup alarms, jobs and syncs. The reporting tool takes either a single batterystats file or a text file containing a list of batterystats files as input. In case a list of batterystats files is supplied as input, a separate report is generated for every file. The script primarily performs text mining on the batterystats file and stores the required information in dictionaries. These dictionaries are then used to create tables and graphs. The reporter script reports job, service, sync and wakelock information Screenshots from the tool are below:
 \begin{figure}[!h]
  	\begin{center}
 		\includegraphics[scale=0.35]{reporter2}
+		\caption{Service graphs}
+		Similar graphs are generated for jobs, syncs and wakelocks
 	\end{center}
 \end{figure}
+\begin{figure}[!h]
+ 	\begin{center}
+		\includegraphics[scale=0.6]{reporter1}
+		\caption{App Statistics}
+	\end{center}
+\end{figure}
+\pagebreak
 
 After developing this reporting tool, I had a discussion with my guide and my manager, and we decided that the attachment download service needs to be looked into again, to see if the large number of starts is consuming battery unnecessarily. To do this, I added two attachment test cases:
 \begin{itemize}
@@ -543,7 +411,7 @@ Test conditions:
 	\end{itemize}
 	\item 20 mails were sent for every test case
 \end{itemize}
-\pagebreak
+
 \underline{Results for sending 20 mails in one go:} \\
 \begin{table}[!h]
 \centering
@@ -668,52 +536,27 @@ Observations:
 	\item With all other services running for same amount of time, it can be seen that increased running of the Attachment Download Service is a potential factor for the 0.06\% increase in battery consumption when downloading attachments. 
 	\item The battery consumption might have also increased due to transfer of higher number of packets due to downloading of attachments, leading to higher network usage.
 \end{itemize}
-\section{Remaining work} 
-\textbf{User Profiles}: I have been asked to develop user profiles for three types of users, namely heavy users, moderate users and light users. For this I have to write a script which can be run against a Microsoft Exchange server and will return the count of attachments (both file and inline) and appointments for the past one month, as well as the number of contacts. This will be done using either the Java Exchange Web Service (EWS) API or the Python exchangelib EWS API. Work on this is mostly complete, although I have to fix a few errors and add exception handling to the script. The script will also automatically mail the counts to my email as attachments, with a common subject. After the script is completed, it will be run against exchange accounts of volunteers to gather the data. Once I have received the mails, I will run another script against my MS Exchange Account, to download all the data, and consolidate them into three files, one each for attachment data, appointment data and contact data. Then I plan to run a clustering algorithm on these files, to find the centers for three clusters, which will be determine the average attachment, appointment and contact count for the three types of users. Based on this data, we will modify the test cases to reflect all three types of users and determine the battery usage pattern for the three types of users.\\
 
-\textbf{Automating the entire process:} The entire test will be run as a Jenkins job. This will consist of the following steps:
+I had been asked to develop user profiles for three types of users, namely heavy users, moderate users and light users. For this I wrote a script which can be run against a Microsoft Exchange server and will return the count of attachments (both file and inline) and appointments for the past one month, as well as the number of contacts. This will be done using either the Java Exchange Web Service (EWS) API or the Python exchangelib EWS API. The script automatically mails the counts to my email as attachments, with a common subject. The script was to be run against exchange accounts of volunteers to gather the data. Once I have received the mails, I will run another script against my MS Exchange Account, to download all the data, and consolidate them into three files, one each for attachment data, appointment data and contact data, post which a clustering algorithm was to be run on these files, to find the centers for three clusters, which will be determine the average attachment, appointment and contact count for the three types of users. However we realized that this approach would be highly erroneous as it would provide us usage details of the user accounts in general and not on the app level, as this would account all attachements, contacts or appointments a user receives or creates irrespective of whether the client used (mobile app, desktop app, web app). Since we were interested in only the statistics of mobile app, and since there was no way to aggregate statistics of only the mobile app, we decided to go with a relative comparison, wherein we would test every version of the app against a fixed arbitrary user profile\\
+
+\section{Automating the entire process:} The entire test will be run as a Jenkins job. This will consist of the following steps:
 \begin{enumerate}
-	\item Run specific BVT and FVT Test Cases
+	\item Run specific BatteryPerf tests
 	\item Run Email Sync Script
-	\item Generate battery stats report and dump it in jenkins archive
-	\item Show the battery stats reports after performing the tests
+	\item Generate battery stats report and dump it in Jenkins archive
+	\item Compare battery stats reports for different versions to check for improvements/deteriorations in battery performance, and dump comparision report to Jenkins archive
 
-\end{enumerate}
-
-%References
-\bibliographystyle{IEEEtran}
-\begin{thebibliography}{1}
-
-\bibitem{idcsurvey} ``IDC survey shows battery life is most important when buying smartphone", \textit{GSMArena} [Online]. Available:\texttt{ http://blog.gsmarena.com/idc-surveys-50000-people-reasons-behind-buying\-smartphone-battery-life-deemed-important}
- 
-\bibitem{wakelock} 
-``Keeping the Device Awake", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/scheduling/wakelock.html} 
- 
-\bibitem{stackoverflow} ``Is there any type of partial wake lock mechanism in ios?", \textit{Stackoverflow} [Online]. Available: \texttt{stackoverflow.com/questions/20580157/is-there-any-type-of-partial-wake\-lock-mechanism-in-ios}
-
-\bibitem{batteryhistorian}
-``Analyzing Power Use with Battery Historian", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/topic/performance/power/battery\-historian.html}
-
-\bibitem{adb}
-``Android Debug Bridge (adb)", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/studio/command-line/adb.html}
-
-\bibitem{uiautomator}
-``UI Automator | Android Developers", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/testing/ui-automator.html}
-
-\bibitem{uiautomatordoc}
-``UIAutomator", \textit{GitHub} [Online]. Available: \texttt{https://github.com/xiaocong/uiautomator}
-
-\bibitem{robot}
-``Robot Framework", \textit{Robot Framework} [Online]. Available: \texttt{http://robotframework.org}
-
-\bibitem{postfix}
-``Configure Postfix to use Gmail as a Mail Relay", \textit{HowtoForge} [Online]. Available: \texttt{https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a\-mail-relay}
-
-\bibitem{compatibility}
-``Postfix Backwards Compatability Safety Net", \textit{Postfix} [Online]. Available: \texttt{http://www.postfix.org/COMPATIBILITY\_README.html}
-
-\bibitem{msmtp}
-``How to use MSMTP with Gmail, Yahoo and PHP Mail", \textit{Jesin's Blog} [Online]. Available: \texttt{https://websistent.com/how-to-use-msmtp-with-gmail-yahoo-and\-php-mail}
-\end{thebibliography}
-\end{document}
-	 	  
+To compare battery stats reports a developed another script, which makes use of the reporter script to generate the dictionaries. Then it compares the dictionaries and generates graphs for the differences. Screenshots of this tool are on the next page:
+\begin{figure}[!h]
+ 	\begin{center}
+		\includegraphics[scale=0.6]{diff1}
+		\caption{Overall Battery Usage}
+	\end{center}
+\end{figure}
+\begin{figure}[t!]
+ 	\begin{center}
+		\includegraphics[scale=0.5]{diff2}
+		\caption{Sync Difference Graph}
+		Similar graphs are generated for jobs, services and wakelocks
+	\end{center}
+\end{figure}

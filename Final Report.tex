@@ -1,0 +1,138 @@
+\documentclass[runningheads,a4paper,12pt]{report}
+\setlength\textwidth{7in}
+\usepackage{amssymb,amsmath}
+\usepackage{verbatim,graphicx}
+\usepackage{fullpage}
+\usepackage[document]{ragged2e}
+\usepackage[pdftex,bookmarks=true,hidelinks]{hyperref}
+\setlength{\parindent}{0cm}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\setlength\extrarowheight{5pt}
+\lstdefinestyle{numbers} {numbers=left, stepnumber=1, numberstyle=\tiny, numbersep=10pt}
+\lstdefinestyle{MyFrame}{frame=shadowbox}
+\lstdefinestyle{PyStyle} {language=Python,style=numbers,style=MyFrame,frame=tb}
+\lstdefinestyle{ShellStyle} {language=sh,style=numbers,style=MyFrame,frame=tb}
+
+\lstset{language=Python,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
+\lstset{language=sh,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
+\setlength\parindent{0pt}
+\begin{document}
+
+\begin{titlepage}
+\vspace*{2cm}
+	\begin{center}
+	\large{\textbf{Battery Performance and Automated UI Testing of given Citrix App}}
+	\end{center}
+	\vspace{0.5cm}\
+	\begin{center}
+	\small{\textit{Project progress report submitted} \\ \vspace{0.25cm} \textit{to} \\ \vspace{0.25cm}\textbf{MANIPAL ACADEMY OF HIGHER EDUCATION} \\}
+	\end{center}
+	\vspace{0.25cm}
+	\begin{center}
+	\small{\textit{For Partial Fulfillment of the Requirement for the\\ \vspace{0.25cm}Award of the Degree\\ \vspace{0.25cm}of}} \\ \vspace{0.25cm}
+	\textbf{Bachelor of Technology} \\  \vspace{0.25cm} \textit{in} \\ \textbf{Information Technology}
+	\end{center}
+	
+	\begin{center}
+	\small{\textit{by}} \\
+	\textbf{Anuraag Palash Baishya} \\ \textbf{Reg. No. 140911296} \\
+	\end{center}
+
+
+\begin{center}
+	\small{\textit{Under the guidance of}} \\
+\renewcommand{\baselinestretch}{1}
+{	
+\begin{table}[h]
+	\centering
+		\begin{tabular}{p{3in} p{3in}}
+			Mrs. Aparna Nayak &  Mr. Rajeev Dixit  \\
+			Assistant Professor
+ &    Software Development Engineer\\
+			Department of I \& CT  &  Mobile Platform Group (Automation) \\
+			 Manipal Institute of Technology& Citrix R\&D India Ltd \\
+			Manipal, India &  Ulsoor Road, Bangalore, India 
+		\end{tabular}
+\end{table}
+}
+
+\end{center}
+
+
+\begin{figure}[h]
+  \begin{center}
+	\includegraphics[scale=1]{MITLogo}
+	\end{center}
+	\end{figure}
+	\begin{center}
+	\textbf{March 2018}
+	\end{center}
+\end{titlepage}
+
+\newpage
+\include{Dedication}
+\include{Declaration}
+\include{Certificate}
+\addcontentsline{toc}{chapter}{Acknowlegements}
+\include{Acknowledgement}
+\addcontentsline{toc}{chapter}{Abstract}
+\include{Abstract}
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\tableofcontents
+\pagenumbering{arabic}
+\part{Battery Performance Testing}
+\include{Introduction1}
+\include{Background1}
+\include{Methodology1}
+\include{WorkDone1}
+
+
+
+
+\end{enumerate}
+
+%References
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{1}
+
+\bibitem{idcsurvey} ``IDC survey shows battery life is most important when buying smartphone", \textit{GSMArena} [Online]. Available:\texttt{ http://blog.gsmarena.com/idc-surveys-50000-people-reasons-behind-buying\-smartphone-battery-life-deemed-important}
+ 
+\bibitem{wakelock} 
+``Keeping the Device Awake", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/scheduling/wakelock.html} 
+ 
+\bibitem{stackoverflow} ``Is there any type of partial wake lock mechanism in ios?", \textit{Stackoverflow} [Online]. Available: \texttt{stackoverflow.com/questions/20580157/is-there-any-type-of-partial-wake\-lock-mechanism-in-ios}
+
+\bibitem{batteryhistorian}
+``Analyzing Power Use with Battery Historian", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/topic/performance/power/battery\-historian.html}
+
+\bibitem{adb}
+``Android Debug Bridge (adb)", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/studio/command-line/adb.html}
+
+\bibitem{uiautomator}
+``UI Automator | Android Developers", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/testing/ui-automator.html}
+
+\bibitem{uiautomatordoc}
+``UIAutomator", \textit{GitHub} [Online]. Available: \texttt{https://github.com/xiaocong/uiautomator}
+
+\bibitem{robot}
+``Robot Framework", \textit{Robot Framework} [Online]. Available: \texttt{http://robotframework.org}
+
+\bibitem{postfix}
+``Configure Postfix to use Gmail as a Mail Relay", \textit{HowtoForge} [Online]. Available: \texttt{https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a\-mail-relay}
+
+\bibitem{compatibility}
+``Postfix Backwards Compatability Safety Net", \textit{Postfix} [Online]. Available: \texttt{http://www.postfix.org/COMPATIBILITY\_README.html}
+
+\bibitem{msmtp}
+``How to use MSMTP with Gmail, Yahoo and PHP Mail", \textit{Jesin's Blog} [Online]. Available: \texttt{https://websistent.com/how-to-use-msmtp-with-gmail-yahoo-and\-php-mail}
+\end{thebibliography}
+\end{document}
+	 	  
