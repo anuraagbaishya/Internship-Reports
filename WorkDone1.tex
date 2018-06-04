@@ -1,6 +1,6 @@
 \setlength\parindent{0pt}
 
-\chapter{Workdone So Far}
+\chapter{Workdone -- Battery Performace Testing}
 
 \section{Setting up battery historian and UI Automator automation setup:} I got Battery Historian (a tool to analyze power use on Android devices, developed by Google) running on my machine. Then I learnt how to generate battery statistics and bug reports using adb (Android Debug Bridge). Following are the adb commands to use:\cite{adb}
 \begin{lstlisting}[style=ShellStyle]
@@ -546,6 +546,7 @@ I had been asked to develop user profiles for three types of users, namely heavy
 	\item Generate battery stats report and dump it in Jenkins archive
 	\item Compare battery stats reports for different versions to check for improvements/deteriorations in battery performance, and dump comparision report to Jenkins archive
 
+\end{enumerate}
 To compare battery stats reports a developed another script, which makes use of the reporter script to generate the dictionaries. Then it compares the dictionaries and generates graphs for the differences. Screenshots of this tool are on the next page:
 \begin{figure}[!h]
  	\begin{center}

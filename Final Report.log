@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.30)  30 MAY 2018 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.30)  4 JUN 2018 17:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -364,8 +364,8 @@ LaTeX Warning: Unused global option(s):
     [runningheads].
 
 (./Final Report.aux (./Dedication.aux) (./Declaration.aux) (./Certificate.aux)
-(./Acknowledgement.aux) (./Abstract.aux) (./Introduction1.aux)
-(./Background1.aux) (./Methodology1.aux) (./WorkDone1.aux
+(./Acknowledgement.aux) (./Abstract.aux) (./Introduction.aux) (./Background.aux
+) (./Methodology.aux) (./WorkDone1.aux
 
 LaTeX Warning: Label `my-label' multiply defined.
 
@@ -396,7 +396,7 @@ LaTeX Warning: Label `my-label' multiply defined.
 
 LaTeX Warning: Label `my-label' multiply defined.
 
-))
+) (./WorkDone2.aux))
 \openout1 = `"Final Report.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -413,7 +413,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
- (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count121
 \scratchdimen=\dimen132
@@ -483,7 +484,7 @@ Overfull \hbox (4.6521pt too wide) in paragraph at lines 53--61
  [][] 
  []
 
-<MITLogo.jpg, id=86, 459.243pt x 61.101pt>
+<MITLogo.jpg, id=122, 459.243pt x 61.101pt>
 File: MITLogo.jpg Graphic file (type jpg)
 <use MITLogo.jpg>
 Package pdftex.def Info: MITLogo.jpg  used on input line 69.
@@ -563,7 +564,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  [7
 
-] (./Final Report.toc)
+] (./Final Report.toc
+[8
+
+])
 \tf@toc=\write6
 \openout6 = `"Final Report.toc"'.
 
@@ -571,112 +575,108 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.91 \part
-          {Battery Performance Testing} [1
+l.91 \include{Introduction}
+                            [1]
+\openout2 = `Introduction.aux'.
 
-] [2
-
-]
-\openout2 = `Introduction1.aux'.
-
- (./Introduction1.tex
+ (./Introduction.tex
 Chapter 1.
-
-LaTeX Warning: Citation `idcsurvey' on page 3 undefined on input line 3.
-
-[3
+[2
 
 
-]) [4]
-\openout2 = `Background1.aux'.
+]) [3]
+\openout2 = `Background.aux'.
 
- (./Background1.tex
+ (./Background.tex
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
 
-LaTeX Warning: Citation `wakelock' on page 5 undefined on input line 11.
-
-
-LaTeX Warning: Citation `stackoverflow' on page 5 undefined on input line 11.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-) [5
+[4
 
 
 
 ]
-\openout2 = `Methodology1.aux'.
-
- (./Methodology1.tex
-Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+<pyramid.jpeg, id=277, 803.0pt x 547.04375pt>
+File: pyramid.jpeg Graphic file (type jpg)
+<use pyramid.jpeg>
+Package pdftex.def Info: pyramid.jpeg  used on input line 20.
+(pdftex.def)             Requested size: 401.49902pt x 273.5212pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+ [5 <./pyramid.jpeg>]) [6]
+\openout2 = `Methodology.aux'.
 
+ (./Methodology.tex
+Chapter 3.
 
-LaTeX Warning: Citation `batteryhistorian' on page 6 undefined on input line 28
-.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--29
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[6
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
+
+ []
+
+[7
 
 
 
 ]
-<Workflow.png, id=223, 733.74126pt x 181.67876pt>
+<Workflow.png, id=296, 733.74126pt x 181.67876pt>
 File: Workflow.png Graphic file (type png)
 <use Workflow.png>
-Package pdftex.def Info: Workflow.png  used on input line 34.
+Package pdftex.def Info: Workflow.png  used on input line 31.
 (pdftex.def)             Requested size: 440.24815pt x 109.00809pt.
-) [7 <./Workflow.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+<uiflow.png, id=298, 543.02875pt x 141.52875pt>
+File: uiflow.png Graphic file (type png)
+<use uiflow.png>
+Package pdftex.def Info: uiflow.png  used on input line 44.
+(pdftex.def)             Requested size: 380.11752pt x 99.06944pt.
+[8 <./Workflow.png> <./uiflow.png>]
+<Workflow2.png, id=308, 543.02875pt x 61.22874pt>
+File: Workflow2.png Graphic file (type png)
+<use Workflow2.png>
+Package pdftex.def Info: Workflow2.png  used on input line 54.
+(pdftex.def)             Requested size: 380.11752pt x 42.8598pt.
+) [9 <./Workflow2.png>]
 \openout2 = `WorkDone1.aux'.
 
  (./WorkDone1.tex
 Chapter 4.
-
-LaTeX Warning: Citation `adb' on page 8 undefined on input line 5.
-
-[8
+[10
 
 
 
@@ -706,57 +706,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
  []
 
 
-LaTeX Warning: Citation `uiautomator' on page 9 undefined on input line 49.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[9]
+[11]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 62.
- [10]
-
-LaTeX Warning: Citation `uiautomatordoc' on page 11 undefined on input line 99.
-
-
-
+ [12]
 Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
-
-
-LaTeX Warning: Citation `robot' on page 11 undefined on input line 101.
 
 
 Overfull \hbox (21.27625pt too wide) in paragraph at lines 132--133
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[11]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
-
-
-LaTeX Warning: Citation `postfix' on page 12 undefined on input line 172.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 172--173
 
  []
 
-
-LaTeX Warning: Citation `compatibility' on page 12 undefined on input line 174.
-
-
-
+[14]
 Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
-[12]
+
 Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
@@ -766,10 +748,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
-
-LaTeX Warning: Citation `msmtp' on page 13 undefined on input line 192.
-
-[13]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
@@ -779,7 +758,7 @@ Overfull \hbox (3.61992pt too wide) in paragraph at lines 217--217
 []\OT1/cmr/bx/n/17.28 Segregating the Test Cases (TCs) which test most
  []
 
-[14]
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
@@ -792,17 +771,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 238--239
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 301--302
 
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
 
-[17]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
@@ -822,12 +801,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
-<reporter2.png, id=422, 1503.6175pt x 951.555pt>
+<reporter2.png, id=520, 1503.6175pt x 951.555pt>
 File: reporter2.png Graphic file (type png)
 <use reporter2.png>
 Package pdftex.def Info: reporter2.png  used on input line 386.
@@ -837,16 +816,16 @@ Overfull \hbox (73.30612pt too wide) in paragraph at lines 386--387
  [] 
  []
 
-<reporter1.png, id=423, 528.97626pt x 962.59625pt>
+<reporter1.png, id=521, 528.97626pt x 962.59625pt>
 File: reporter1.png Graphic file (type png)
 <use reporter1.png>
 Package pdftex.def Info: reporter1.png  used on input line 393.
 (pdftex.def)             Requested size: 317.3882pt x 577.56221pt.
-[19]
+[21]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20 <./reporter2.png>] [21 <./reporter1.png>]
+[22 <./reporter2.png>] [23 <./reporter1.png>]
 Overfull \hbox (37.77615pt too wide) in paragraph at lines 431--438
  [][] 
  []
@@ -867,7 +846,7 @@ Overfull \hbox (22.76659pt too wide) in paragraph at lines 459--469
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22]
+[24]
 Overfull \hbox (37.77615pt too wide) in paragraph at lines 493--500
  [][] 
  []
@@ -891,146 +870,106 @@ Overfull \hbox (22.76659pt too wide) in paragraph at lines 521--531
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 540--541
 
  []
 
-[24]
-<diff1.png, id=456, 400.49625pt x 721.69624pt>
+[26]
+<diff1.png, id=554, 400.49625pt x 721.69624pt>
 File: diff1.png Graphic file (type png)
 <use diff1.png>
-Package pdftex.def Info: diff1.png  used on input line 552.
+Package pdftex.def Info: diff1.png  used on input line 553.
 (pdftex.def)             Requested size: 240.29959pt x 433.02109pt.
-<diff2.png, id=457, 825.0825pt x 279.0425pt>
+<diff2.png, id=555, 825.0825pt x 279.0425pt>
 File: diff2.png Graphic file (type png)
 <use diff2.png>
-Package pdftex.def Info: diff2.png  used on input line 558.
+Package pdftex.def Info: diff2.png  used on input line 559.
 (pdftex.def)             Requested size: 412.54024pt x 139.5209pt.
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25] [26 <./diff1.png> <./diff2.png>]
-\bibstyle{IEEEtran}
-\bibcite{idcsurvey}{1}
+[27] [28 <./diff1.png> <./diff2.png>]
+\openout2 = `WorkDone2.aux'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-[]\OT1/cmr/m/n/12 ``IDC sur-vey shows bat-tery life is most im-por-tant
+ (./WorkDone2.tex
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-\OT1/cmr/m/n/12 when buy-ing smart-phone", \OT1/cmr/m/it/12 GS-MArena \OT1/cmr/
-m/n/12 [On-line]. Avail-able:
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
  []
 
+[29
 
-Overfull \hbox (9.90991pt too wide) in paragraph at lines 106--107
-\OT1/cmtt/m/n/12 http://blog.gsmarena.com/idc-surveys-50000-people-reasons-behi
-nd-buying-
- []
-
-\bibcite{wakelock}{2}
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-[]\OT1/cmr/m/n/12 ``Keeping the De-vice Awake", \OT1/cmr/m/it/12 An-droid De-ve
-l-op-ers \OT1/cmr/m/n/12 [On-line]. Avail-able:
- []
-
-\bibcite{stackoverflow}{3}
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-[]\OT1/cmr/m/n/12 ``Is there any type of par-tial wake lock mech-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-\OT1/cmr/m/n/12 a-nism in ios?", \OT1/cmr/m/it/12 Stack-over-flow \OT1/cmr/m/n/
-12 [On-line]. Avail-able:
- []
-
-
-Overfull \hbox (3.73491pt too wide) in paragraph at lines 111--112
-\OT1/cmtt/m/n/12 stackoverflow.com/questions/20580157/is-there-any-type-of-part
-ial-wake-
- []
-
-\bibcite{batteryhistorian}{4}
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
-\OT1/cmr/m/n/12 able: \OT1/cmtt/m/n/12 https://developer.android.com/topic/perf
-ormance/power/battery-
- []
-
-\bibcite{adb}{5}
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
-[]\OT1/cmr/m/n/12 ``Android De-bug Bridge (adb)", \OT1/cmr/m/it/12 An-droid De-
-vel-op-ers \OT1/cmr/m/n/12 [On-line]. Avail-able:
- []
-
-\bibcite{uiautomator}{6}
-\bibcite{uiautomatordoc}{7}
-
-Overfull \hbox (35.70543pt too wide) in paragraph at lines 123--124
-[]\OT1/cmr/m/n/12 ``UIAutomator", \OT1/cmr/m/it/12 GitHub \OT1/cmr/m/n/12 [On-l
-ine]. Avail-able: \OT1/cmtt/m/n/12 https://github.com/xiaocong/uiautomator 
- []
-
-\bibcite{robot}{8}
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
-[]\OT1/cmr/m/n/12 ``Robot Frame-work", \OT1/cmr/m/it/12 Robot Frame-work \OT1/c
-mr/m/n/12 [On-line]. Avail-able:
- []
-
-\bibcite{postfix}{9}
-
-Overfull \hbox (9.90991pt too wide) in paragraph at lines 129--130
-\OT1/cmtt/m/n/12 https://www.howtoforge.com/tutorial/configure-postfix-to-use-g
-mail-as-a-
- []
-
-\bibcite{compatibility}{10}
-
-Underfull \hbox (badness 2418) in paragraph at lines 132--133
-[]\OT1/cmr/m/n/12 ``Postfix Back-wards Com-pata-bil-ity Safety Net", \OT1/cmr/m
-/it/12 Post-fix \OT1/cmr/m/n/12 [On-line]. Avail-able:
- []
-
-\bibcite{msmtp}{11}
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-[27
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+Overfull \hbox (36.09637pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+ []
+
+[30]) [31] (./Final Report.bbl
+Underfull \hbox (badness 1565) in paragraph at lines 26--30
+\OT1/cmr/m/n/12 ing smart-phone. [On-line]. Avail-able: []$http : / / blog . gs
+marena . com /
+ []
+
+
+Overfull \hbox (50.92276pt too wide) in paragraph at lines 26--30
+\OT1/cmr/m/n/12 idc-[]surveys-[]50000-[]people-[]reasons-[]behind-[]buying-[]sm
+artphone-[]battery-[]life-[]deemed-[]important/$[] 
+ []
+
+
+Underfull \hbox (badness 1221) in paragraph at lines 39--43
+[]\OT1/cmr/m/n/12 Is there any type of par-tial wake lock mech-a-nism in
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
+ [32
+
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
  (./Final Report.aux (./Dedication.aux) (./Declaration.aux)
 (./Certificate.aux) (./Acknowledgement.aux) (./Abstract.aux)
-(./Introduction1.aux) (./Background1.aux) (./Methodology1.aux) (./WorkDone1.aux
-))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+(./Introduction.aux) (./Background.aux) (./Methodology.aux) (./WorkDone1.aux)
+(./WorkDone2.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
 Package rerunfilecheck Info: File `"Final Report".out' has not changed.
-(rerunfilecheck)             Checksum: BB1A2CFB13651B7EF3B3F4347D86F56A;1534.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: A983053FF223C4F3D6EC863B94D907BC;2175.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 103.
  ) 
 Here is how much of TeX's memory you used:
- 9947 strings out of 492649
- 143323 string characters out of 6129622
- 276785 words of memory out of 5000000
- 13404 multiletter control sequences out of 15000+600000
- 12047 words of font info for 45 fonts, out of 8000000 for 9000
+ 10044 strings out of 492649
+ 144604 string characters out of 6129622
+ 277785 words of memory out of 5000000
+ 13447 multiletter control sequences out of 15000+600000
+ 11700 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,11n,46p,1694b,1940s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,11n,46p,1694b,1910s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb>
@@ -1039,12 +978,11 @@ usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
 cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
 al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on "Final Report.pdf" (35 pages, 395868 bytes).
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on "Final Report.pdf" (41 pages, 445376 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
- 513 compressed objects within 6 object streams
- 246 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 723 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 286 named destinations out of 1000 (max. 500000)
+ 286 words of extra memory for PDF output out of 10000 (max. 10000000)
 

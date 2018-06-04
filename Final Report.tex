@@ -68,7 +68,7 @@
   \begin{center}
 	\includegraphics[scale=1]{MITLogo}
 	\end{center}
-	\end{figure}
+	\end{figure}`
 	\begin{center}
 	\textbf{March 2018}
 	\end{center}
@@ -88,51 +88,17 @@
 \listoffigures
 \tableofcontents
 \pagenumbering{arabic}
-\part{Battery Performance Testing}
-\include{Introduction1}
-\include{Background1}
-\include{Methodology1}
+\include{Introduction}
+\include{Background}
+\include{Methodology}
 \include{WorkDone1}
-
-
-
-
-\end{enumerate}
+\include{WorkDone2}
 
 %References
-\bibliographystyle{IEEEtran}
-\begin{thebibliography}{1}
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References} % changes default name Bibliography to References
+\bibliography{references} % References file
+\bibliographystyle{IEEEtran} % bibliography style```
 
-\bibitem{idcsurvey} ``IDC survey shows battery life is most important when buying smartphone", \textit{GSMArena} [Online]. Available:\texttt{ http://blog.gsmarena.com/idc-surveys-50000-people-reasons-behind-buying\-smartphone-battery-life-deemed-important}
- 
-\bibitem{wakelock} 
-``Keeping the Device Awake", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/scheduling/wakelock.html} 
- 
-\bibitem{stackoverflow} ``Is there any type of partial wake lock mechanism in ios?", \textit{Stackoverflow} [Online]. Available: \texttt{stackoverflow.com/questions/20580157/is-there-any-type-of-partial-wake\-lock-mechanism-in-ios}
-
-\bibitem{batteryhistorian}
-``Analyzing Power Use with Battery Historian", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/topic/performance/power/battery\-historian.html}
-
-\bibitem{adb}
-``Android Debug Bridge (adb)", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/studio/command-line/adb.html}
-
-\bibitem{uiautomator}
-``UI Automator | Android Developers", \textit{Android Developers} [Online]. Available: \texttt{https://developer.android.com/training/testing/ui-automator.html}
-
-\bibitem{uiautomatordoc}
-``UIAutomator", \textit{GitHub} [Online]. Available: \texttt{https://github.com/xiaocong/uiautomator}
-
-\bibitem{robot}
-``Robot Framework", \textit{Robot Framework} [Online]. Available: \texttt{http://robotframework.org}
-
-\bibitem{postfix}
-``Configure Postfix to use Gmail as a Mail Relay", \textit{HowtoForge} [Online]. Available: \texttt{https://www.howtoforge.com/tutorial/configure-postfix-to-use-gmail-as-a\-mail-relay}
-
-\bibitem{compatibility}
-``Postfix Backwards Compatability Safety Net", \textit{Postfix} [Online]. Available: \texttt{http://www.postfix.org/COMPATIBILITY\_README.html}
-
-\bibitem{msmtp}
-``How to use MSMTP with Gmail, Yahoo and PHP Mail", \textit{Jesin's Blog} [Online]. Available: \texttt{https://websistent.com/how-to-use-msmtp-with-gmail-yahoo-and\-php-mail}
-\end{thebibliography}
 \end{document}
 	 	  

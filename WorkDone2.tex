@@ -1,0 +1,53 @@
+\setlength\parindent{0pt}
+
+\chapter{Workdone -- Automated UI Testing}
+
+\section{Converting Test Cases from Perfecto to UIAutomator}
+Earlier the automation suite ran on Perfecto, but the suite has now been migrated to use UIAutomator. A total of 6 functional verification tests (FVT) were left to be migrated to UIAutomator. I worked on converting these test cases. For this I had to convert Java code to Python, and add helper functions to the automation library (an internal library that contains functions which perfoem tasks needed by many test cases, such as search for attachment or take a picture). I worked with test cases involving use of camera, attachments in emails and attachments in calendar events. \\
+
+Initially I could not get the attachment in calendar events test to run because I was using a wrong server version. After changing to the correct version all tests were working correctly. Here we follow a process that any changes that may affect suite stability need to be verified by running the suite and making sure the stability is not affected. (Suite stability is the percentage of tests belonging to a suite which passed. So if 9/10 tests pass, stability is 90\%). The tests I had added belonged to the FVT suite, but certain chnages to the automation library code could affect Build Validation Test (BVT) too. Hence I ran both these suites and results were as follows:
+
+\begin{table}[!h]
+\centering
+\caption{BVT and FVT Results}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Suite & Total Tests & Tests Pass & Tests Fail & Stability \\ \hline
+FVT   & 46          & 37         & 9          & 80        \\ \hline
+BVT   & 26          & 26         & 0          & 100       \\ \hline         
+\end{tabular}
+\end{table} 
+
+The original FVT suite had 40 test cases. Since the suite was found to be stable, the new test cases were merged and now there are 46 test cases in the FVT suite as I added 6 more test cases.
+
+\section{Adding Watchers}
+Automated UI Testing follows a chain of steps. So whenever an element is not found, the test fails. Sometimes, random popup dialogs appear and obscure the UI resulting in UI elements not being found, leading to failed tests. These pop ups maybe like "Battery Low" or "Rate the App", whose appearance is more or less random and cannot be predicted. Checks for these popup dialogs cannot be added to the test suite due to their unpredictable nature directly. For such cases we make use of watchers. Watchers are a collection of steps which are triggered when a certain condition is met. When UIAutomator cannot find an element, it checks if any of the watchers' trigeering conditions are met, and runs the watcher in such an event. Watchers can also be used to eliminate checks for commonly occuring popups such as those asking for some confirmation\\
+
+A sample watcher would be like this. Suppose we are dealing with "Low Battery" popup dialog which has an "OK" button.
+
+\begin{lstlisting}[style=PyStyle]
+d.watcher("lowBatteryWatcher").when(text="Battery Low")
+		.click(text="Okay") #watcher initialised
+#test case code
+#test case code
+#test case code
+d.watchers.remove() #remove watcher when work done
+
+#the trigerred status of a watcher can be checked like this:
+print d.watcher("lowBatteryWatcher").triggered 
+#returns true if triggered, else false
+
+'''Watchers stay over sessions. So if a watcher is triggered 
+in a particular run it will stay triggered until reset. 
+To reset we use'''
+d.watchers().reset()
+
+#NOTE: using d.watcher("name") only affects the particular watcher 
+#while d.watchers() affects all watchers
+\end{lstlisting}
+
+At first I had to analyse if using watchers will be feasible. Once I found it to be feasible, I modified some functions in the automation library to include watchers. I added watchers for Samsung Knox screen and to replace multiple checks for "OK".\\ 
+
+Samsung Knox is an enterprise mobile security solution pre-installed in most of Samsung's smartphones, tablets, and wearables. Because our app would require device administration, Knox comes into affect and an user must confirm they agree with Knox terms and conditions. Most times, the Knox popup's appearance can be predicted and code to confirm Knox terms and condition was added to the tests that needed it. However it was observed at times the Knox popup appears earlier or later than when it's supposed to appear, leading to test failures. After the watcher was added, the test case can now confirm the Knox terms and conditions whenever the popup appears.\\
+
+I also observed that many test cases had multiple tests for the element "OK" after interactions that might cause a confirmation (such as deleting something). I checked if I could replace all these checks with a single watcher, and I could succesfully replace the checks for "OK", which reduced the length of the test case code, making it more readable and easier to debug.
