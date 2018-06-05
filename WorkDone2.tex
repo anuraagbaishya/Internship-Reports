@@ -10,7 +10,7 @@ Initially I could not get the attachment in calendar events test to run because 
 \begin{table}[!h]
 \centering
 \caption{BVT and FVT Results}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
 Suite & Total Tests & Tests Pass & Tests Fail & Stability \\ \hline
 FVT   & 46          & 37         & 9          & 80        \\ \hline
@@ -21,7 +21,7 @@ BVT   & 26          & 26         & 0          & 100       \\ \hline
 The original FVT suite had 40 test cases. Since the suite was found to be stable, the new test cases were merged and now there are 46 test cases in the FVT suite as I added 6 more test cases.
 
 \section{Adding Watchers}
-Automated UI Testing follows a chain of steps. So whenever an element is not found, the test fails. Sometimes, random popup dialogs appear and obscure the UI resulting in UI elements not being found, leading to failed tests. These pop ups maybe like "Battery Low" or "Rate the App", whose appearance is more or less random and cannot be predicted. Checks for these popup dialogs cannot be added to the test suite due to their unpredictable nature directly. For such cases we make use of watchers. Watchers are a collection of steps which are triggered when a certain condition is met. When UIAutomator cannot find an element, it checks if any of the watchers' trigeering conditions are met, and runs the watcher in such an event. Watchers can also be used to eliminate checks for commonly occuring popups such as those asking for some confirmation\\
+Automated UI Testing follows a chain of steps. So whenever an element is not found, the test fails. Sometimes, random popup dialogs appear and obscure the UI resulting in UI elements not being found, leading to failed tests. These pop ups maybe like "Battery Low" or "Rate the App", whose appearance is more or less random and cannot be predicted. Checks for these popup dialogs cannot be added to the test suite due to their unpredictable nature directly. For such cases we make use of watchers. Watchers are a collection of steps which are triggered when a certain condition is met. When UIAutomator cannot find an element, it checks if any of the watchers' trigeering conditions are met, and runs the watcher in such an event\cite{uiautomatordoc}. Watchers can also be used to eliminate checks for commonly occuring popups such as those asking for some confirmation\\
 
 A sample watcher would be like this. Suppose we are dealing with "Low Battery" popup dialog which has an "OK" button.
 
@@ -51,3 +51,18 @@ At first I had to analyse if using watchers will be feasible. Once I found it to
 Samsung Knox is an enterprise mobile security solution pre-installed in most of Samsung's smartphones, tablets, and wearables. Because our app would require device administration, Knox comes into affect and an user must confirm they agree with Knox terms and conditions. Most times, the Knox popup's appearance can be predicted and code to confirm Knox terms and condition was added to the tests that needed it. However it was observed at times the Knox popup appears earlier or later than when it's supposed to appear, leading to test failures. After the watcher was added, the test case can now confirm the Knox terms and conditions whenever the popup appears.\\
 
 I also observed that many test cases had multiple tests for the element "OK" after interactions that might cause a confirmation (such as deleting something). I checked if I could replace all these checks with a single watcher, and I could succesfully replace the checks for "OK", which reduced the length of the test case code, making it more readable and easier to debug.
+
+As done previously, I had to run the BVT and FVT suites to make sure they are stable. The results were as follows:
+
+\begin{table}[!h]
+\centering
+\caption{BVT and FVT Results}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Suite & Total Tests & Tests Pass & Tests Fail & Stability \\ \hline
+FVT   & 40          & 34         & 6          & 85        \\ \hline
+BVT   & 26          & 25         & 1          & 96       \\ \hline         
+\end{tabular}
+\end{table} 
+
+Since the suite was found to be stable, the original code has been replaced with the modified version. I had also made changes to few other functions to improve readability and make debugging easier, but these were minor changes such as creating function for repetative code or removing unused code.

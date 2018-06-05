@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{array}
 \usepackage{caption} 
+\usepackage{tabularx}
 \captionsetup[table]{skip=10pt}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \setlength\extrarowheight{5pt}
@@ -21,6 +22,10 @@
 \lstset{language=Python,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
 \lstset{language=sh,frame=tb,aboveskip=\baselineskip,belowskip=\baselineskip,basicstyle=\ttfamily}
 \setlength\parindent{0pt}
+
+\newcolumntype{b}{>{\hsize=1.75\hsize}X}
+\newcolumntype{m}{>{\hsize=.9\hsize}X}
+
 \begin{document}
 
 \begin{titlepage}
@@ -93,12 +98,16 @@
 \include{Methodology}
 \include{WorkDone1}
 \include{WorkDone2}
+\include{Conclusion}
+
 
 %References
 \addcontentsline{toc}{chapter}{References}
 \renewcommand{\bibname}{References} % changes default name Bibliography to References
 \bibliography{references} % References file
 \bibliographystyle{IEEEtran} % bibliography style```
+
+\include{ProjectDetails}
 
 \end{document}
 	 	  
