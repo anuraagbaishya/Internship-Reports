@@ -3,9 +3,9 @@
 \chapter{Automated UI Testing}
 
 \section{Converting Test Cases from Perfecto to UIAutomator}
-Earlier the automation suite ran on Perfecto, but the suite has now been migrated to use UIAutomator. A total of 6 functional verification tests (FVT) were left to be migrated to UIAutomator. The job involved converting these test cases. For this Java code had to be converedt to Python, and helper functions needed to be added to the automation library (an internal library that contains functions which perfoem tasks needed by many test cases, such as search for attachment or take a picture). Test cases which needed work involved use of camera, attachments in emails and attachments in calendar events. \\
+Earlier the automation suite ran on Perfecto, but the suite has now been migrated to use UIAutomator. A total of 6 functional verification tests (FVT) were left to be migrated to UIAutomator. The job involved converting these test cases. For this Java code had to be converted to Python, and helper functions needed to be added to the automation library (an internal library that contains functions which perform tasks needed by many test cases, such as search for attachment or take a picture). Test cases which needed work involved use of camera, attachments in emails and attachments in calendar events. \\
 
-Initially the attachment in calendar events test did not run because of a wrong server version was being usec. After changing to the correct version all tests were working correctly. Citrix follows a process that any changes that may affect suite stability need to be verified by running the suite and making sure the stability is not affected. (Suite stability is the percentage of tests belonging to a suite which passed. So if 9/10 tests pass, stability is 90\%). The tests added belonged to the FVT suite, but certain changes to the automation library code could affect Build Validation Test (BVT) too. Hence both these suites were run. The results are shown in table 5.1:
+Citrix follows a process that any changes that may affect suite stability need to be verified by running the suite and making sure the stability is not affected. (Suite stability is the percentage of tests belonging to a suite which passed. So if 9/10 tests pass, stability is 90\%). The tests added belonged to the FVT suite, but certain changes to the automation library code could affect Build Validation Test (BVT) too. Hence both these suites were run. The results are shown in table 5.1:
 
 \begin{table}[!h]
 \centering
@@ -21,7 +21,7 @@ BVT   & 26          & 26         & 0          & 100       \\ \hline
 The original FVT suite had 40 test cases. Since the suite was found to be stable, the new test cases were merged and now there are 46 test cases in the FVT suite as 6 more test cases were added.
 
 \section{Adding Watchers}
-Automated UI Testing follows a chain of steps. So whenever an element is not found, the test fails. Sometimes, random popup dialogs appear and obscure the UI resulting in UI elements not being found, leading to failed tests. These pop ups maybe like "Battery Low" or "Rate the App", whose appearance is more or less random and cannot be predicted. Checks for these popup dialogs cannot be added to the test suite directly due to their unpredictable nature. For such cases watchers can be used. Watchers are a collection of steps which are triggered when a certain condition is met. When UIAutomator cannot find an element, it checks if any of the watchers' triggering conditions are met, and runs the watcher in such an event\cite{uiautomatordoc}. Watchers can also be used to eliminate checks for commonly occuring popups such as those asking for some confirmation\\
+Automated UI Testing follows a chain of steps. So whenever an element is not found, the test fails. Sometimes, random popup dialogs appear and obscure the UI resulting in UI elements not being found, leading to failed tests. These pop ups maybe like "Battery Low" or "Rate the App", whose appearance is more or less random and cannot be predicted. Checks for these popup dialogs cannot be added to the test suite directly due to their unpredictable nature. For such cases watchers can be used. Watchers are a collection of steps which are triggered when a certain condition is met. When UIAutomator cannot find an element, it checks if any of the watchers' triggering conditions are met, and runs the watcher in such an event\cite{uiautomatordoc}. Watchers can also be used to eliminate checks for commonly occurring popups such as those asking for some confirmation.\\
 
 A sample watcher would be like this. Suppose the user is dealing with "Low Battery" popup dialog which has an "OK" button.
 
@@ -39,7 +39,7 @@ print d.watcher("lowBatteryWatcher").triggered
 
 '''Watchers stay over sessions. So if a watcher is triggered 
 in a particular run it will stay triggered until reset. 
-To reset we use'''
+To reset use'''
 d.watchers().reset()
 
 #NOTE: using d.watcher("name") only affects the particular watcher 
@@ -48,7 +48,7 @@ d.watchers().reset()
 
 At first an analysis was performed to check if using watchers is feasible. Once it was found to be feasible, some functions in the automation library were modified to include watchers. Watchers were added for Samsung Knox screen and to replace multiple checks for "OK".\\ 
 
-Samsung Knox is an enterprise mobile security solution pre-installed in most of Samsung's smartphones, tablets, and wearables. Because our app would require device administration, Knox comes into affect and an user must confirm they agree with Knox terms and conditions. Most times, the Knox popup's appearance can be predicted and code to confirm Knox terms and condition was added to the tests that needed it. However it was observed at times the Knox popup appears earlier or later than when it's supposed to appear, leading to test failures. After the watcher was added, the test case can now confirm the Knox terms and conditions whenever the popup appears.\\
+Samsung Knox is an enterprise mobile security solution pre-installed in most of Samsung's smartphones, tablets, and wearables. Because the given app would require device administration, Knox comes into affect and an user must confirm they agree with Knox terms and conditions. Most times, the Knox popup's appearance can be predicted and code to confirm Knox terms and condition was added to the tests that needed it. However it was observed at times the Knox popup appears earlier or later than when it's supposed to appear, leading to test failures. After the watcher was added, the test case can now confirm the Knox terms and conditions whenever the popup appears.\\
 
 It was also observed that many test cases had multiple tests for the element "OK" after interactions that might cause a confirmation (such as deleting something). Tests were performed to see if all these checks could be replaced with a single watcher. The tests were successful and the checks for "OK" were replaced with a watcher, which reduced the length of the test case code, making it more readable and easier to debug.\\
 
@@ -65,4 +65,32 @@ BVT   & 26          & 25         & 1          & 96       \\ \hline
 \end{tabular}
 \end{table} 
 
-Since the suite was found to be stable, the original code has been replaced with the modified version. I had also made changes to few other functions to improve readability and make debugging easier, but these were minor changes such as creating function for repetative code or removing unused code.
+Since the suite was found to be stable, the original code has been replaced with the modified version. Changes to few other functions were also made to improve readability and make debugging easier, but these were minor changes such as creating function for repetitive code or removing unused code.
+
+\begin{adjustbox}{angle=270}
+\scriptsize
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline	
+\textbf{Action} & \textbf{Temp Table} & \textbf{Record Status} & \textbf{Main Table} & \textbf{Record Status} & \textbf{Remarks} \\ \hline
+\textbf{Maker Actions:}   &           &         &           &         &       \\ \hline
+Creates a New Record   & Y          & N         & -          & -	&-       \\ \hline         
+Maker Modifies a New record(N -$>$ M)  & Y          & N         & -          & -	      &-       \\ \hline
+Maker Deletes a New record(N -$>$ D)   & -          & -         & -          & -	      & Hard Delete from Temp Table       \\ \hline
+Maker Modifies a Modified authorized record(A -$>$ M -$>$ M)   & Y          & M         & Y          & A	& -       \\ \hline
+Maker Deletes a Modified record(A -$>$ M -$>$ D)   & -          & -         & Y          & A	& Hard Delete from Temp Table       \\ \hline
+Maker Modifies a new Rejected record(N -$>$ NR -$>$ M)   & Y          & M         & -          & -	&-       \\ \hline
+Maker Deletes a new Rejected record(N -$>$ NR -$>$ D)   & -          & -         & -          & -	& Hard Delete from Temp Table       \\ \hline
+Maker Modifies a Modified Rejected record(N -$>$ MR -$>$ M)   & Y          & M         & Y          & A	&-       \\ \hline
+Maker Deletes a Modified  Rejected record(N -$>$ MR -$>$ D)   & -          & -         & Y          & A	& Hard Delete from Temp Table       \\ \hline
+Maker Modifies an Authorized record(A -$>$ M) & Y          & M         & Y          & A	      &-       \\ \hline
+Maker Deletes an Authorized record(A -$>$ D)   & Y          & D         & Y          & A    	&-       \\ \hline
+	& 	&	&	&	&	\\ \hline
+\textbf{Checker Actions:} &	&	&	&	&	\\ \hline
+Checker Authorizes a new record(N -$>$ A)   & -          & -         & Y          & A	& Hard Delete from Temp Table       \\ \hline
+Checker Rejects a new record(N -$>$ R)   & Y          & NR         & -          & -	& -       \\ \hline
+Checker Rejects a modified record(M -$>$ R)   & Y          & MR         & Y          & A	& -       \\ \hline
+Checker Authorizes a deleted record(A -$>$ D -$>$A)   & -          & -         & -          & -	& Hard Delete from Temp Table \& Main Table   \\ \hline
+Checker Authorizes a modified record(A -$>$ M -$>$A)   & -          & -         & Y          & A	& -      \\ \hline
+Checker Rejects a deleted record(A -$>$ D -$>$ R)   & Y 	& DR	& Y	& A	& -	\\ \hline
+\end{tabular}
+\end{adjustbox}

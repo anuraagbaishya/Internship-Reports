@@ -1,4 +1,4 @@
- \documentclass[runningheads,a4paper,12pt]{report}
+\documentclass[a4paper,12pt]{report}
 \setlength\textwidth{7in}
 \usepackage{amssymb,amsmath}
 \usepackage{verbatim,graphicx}
@@ -11,6 +11,8 @@
 \usepackage{array}
 \usepackage{caption} 
 \usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
 \captionsetup[table]{skip=10pt}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \setlength\extrarowheight{5pt}
@@ -56,7 +58,7 @@
 \begin{table}[h]
 	\centering
 		\begin{tabular}{p{3in} p{3in}}
-			Mrs. Aparna Nayak &  Mr. Rajeev Dixit  \\
+			Ms. Ipsita Upasana &  Mr. Rajeev Dixit  \\
 			Assistant Professor
  &    Software Development Engineer\\
 			Department of I \& CT  &  Mobile Platform Group (Automation) \\
@@ -89,6 +91,7 @@
 \include{Abstract}
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
+\pagebreak
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 \tableofcontents
@@ -97,6 +100,7 @@
 \include{Methodology}
 \include{WorkDone1}
 \include{WorkDone2}
+\include{Challenges}
 \include{Conclusion}
 
 

@@ -1,0 +1,16 @@
+\setlength\parindent{0pt}
+
+\chapter{Challenges and Restrictions}
+
+When the project was conceptualized, it included certain tasks, which could not be completed due to some external restrictions. These restrictions include changes to Android Operating System, unavailability of required hardware and data, and network restrictions. The major challenges faced are explained below:
+
+\begin{itemize}
+	\item\textbf{Writing a shell script for batch emails:} The Battery Performance test suite required mails to be sent out in batches of 50 with half hour intervals. For this a shell script was to be written using email transfer agents such as Postfix or msmtp. Although both these agents were configured and tested with a gmail relay, due to restrictions in the company network they could not be used to connect to the internal email servers of the company leading to an `Operation Timed Out'error. After further research Java Exchange Web Server (EWS) API along with a corresponding Python wrapper was used to send the batch emails.
+
+	\item\textbf{Running tests in low memory condition:} Originally it was planned to run the entire battery performance test under low free memory conditions, but Android system automatically deallocates memory by shutting down background apps, processes and services when memory consumption becomes high, and hence the program could only keep the memory consumption high for the duration of the attachment tests, hence the entire battery performance test could not be run under low free memory conditions. \\
+
+	\item\textbf{Running tests under different networks:} It was also planned to carry out the battery performance test under network fluctuations and also on 3G/4G network. But due to unavailability of a SIM card, and issues with creating network fluctuations, these tasks have been removed from the project.\\
+
+
+	\item\textbf{User Profiles:} The original project specification included the development of user profiles based on the attachment (both file and inline) count, appointment count for the past one month, and the number of contacts present in an user's email account. However it was realized that this approach would be highly erroneous as this would account for all attachments, contacts or appointments a user receives or creates irrespective of whether the client used (mobile app, desktop app, web app). Since the project required only the statistics of mobile app, and since there was no way to aggregate statistics of only the mobile app, it was decided that a relative comparison would be performed, wherein every version of the app will be tested against a fixed arbitrary user profile.\\
+\end{itemize}
